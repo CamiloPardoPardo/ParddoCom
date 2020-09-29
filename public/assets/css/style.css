@@ -1342,3 +1342,13 @@ work Section style
     color: #ddd;
     padding: 5px;
 }
+
+.login {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: auto 10%;
+    padding: 20px;
+    border:solid 2px #00a885;
+    border-radius: 20px;
+}
+
