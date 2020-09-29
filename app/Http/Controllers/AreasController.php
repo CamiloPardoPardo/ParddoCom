@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 class AreasController extends Controller
@@ -34,7 +34,8 @@ class AreasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Area::create($request->all());
+        return redirect('Formularios');
     }
 
     /**

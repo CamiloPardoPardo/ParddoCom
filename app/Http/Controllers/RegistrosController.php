@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Registro;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +35,8 @@ class RegistrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Registro::create($request->all());
+        return redirect('Formularios');
     }
 
     /**

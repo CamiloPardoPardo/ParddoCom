@@ -28,3 +28,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/Formularios', [App\Http\Controllers\AdminController::class, 'index'])->name('Formularios');
+
+
+//RUTAS PARA AREAS
+Route::POST('/Nueva-Area', [App\Http\Controllers\AreasController::class, 'store'])->name('Nueva-Area');
+
+
+//RUTAS PARA AREAS
+Route::POST('/Nuevo-Registro', [App\Http\Controllers\RegistrosController::class, 'store'])->name('Nuevo-Registro');
+
+
