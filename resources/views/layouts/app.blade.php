@@ -188,27 +188,27 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Opciones
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="/home" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Tablero</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="/Ventas-reportes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Ventas y reportes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/Inventario" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Inventario</p>
                 </a>
               </li>
             </ul>
@@ -303,9 +303,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>$ 150.000</h3>
 
-                <p>New Orders</p>
+                <p>Ventas plataforma</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -318,9 +318,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>$ 53.000<sup style="font-size: 20px"></sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Ventas Negocio</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -333,9 +333,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>$ 14.000</h3>
 
-                <p>User Registrations</p>
+                <p>Mano de obra</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -348,9 +348,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>$ 6.500</h3>
 
-                <p>Unique Visitors</p>
+                <p>Gastos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
