@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registro extends Model
 {
-    use HasFactory;
+    protected $fillable =['Valor','Observacion','id_Area'];
 }

@@ -15,6 +15,9 @@ class CreateRegistrosTable extends Migration
     {
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
+            $table->string('Valor');
+            $table->text('Observacion');
+            $table->string('id_Area');
             $table->timestamps();
         });
     }
