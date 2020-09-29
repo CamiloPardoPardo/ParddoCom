@@ -47,6 +47,11 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178910180-2">
+    </script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -54,9 +59,9 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
+
         gtag('config', 'UA-178910180-2');
     </script>
-
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
