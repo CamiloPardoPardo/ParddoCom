@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/Accesorios', function () {
     return view('welcome');
 });
+Auth::routes(['register' => false]);
 
 Auth::routes();
 
