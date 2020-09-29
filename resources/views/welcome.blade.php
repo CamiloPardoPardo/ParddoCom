@@ -630,7 +630,7 @@
 
                                 </form>
                                 <div class="widget_brand m-top-40">
-                                    <a href="" class="text-uppercase">ParrDDo Comunicaciones</a>
+                                    <a href="" class="text-uppercase">ParDDo Comunicaciones</a>
                                     <p>Siempre a disposición de nuestros clientes,
                                         con calidad y cumplimiento.</p>
                                 </div>
