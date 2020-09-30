@@ -106,19 +106,15 @@
                       <td>1.</td>
                       <td>Superpagos</td>
                       <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
+                          <h4><b>$ </b>{{ number_format($Superpagos, 2 ) }}</h4>
                       </td>
-                      <td><span class="badge bg-danger">{{$TotalPlataforma}}</span></td>
+                      <td><span class="badge bg-primary">30%</span></td>
                     </tr>
                     <tr>
                       <td>2.</td>
                       <td>Recargas</td>
                       <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
+                          <h4><b>$ </b>{{ number_format($Recargas, 2 ) }}</h4>
                       </td>
                       <td><span class="badge bg-warning">70%</span></td>
                     </tr>
@@ -126,9 +122,7 @@
                       <td>3.</td>
                       <td>Efectivo</td>
                       <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
+                          <h4><b>$ </b>{{ number_format($EfectivoPlataforma, 2 ) }}</h4>
                       </td>
                       <td><span class="badge bg-primary">30%</span></td>
                     </tr>
@@ -136,9 +130,7 @@
                       <td>4.</td>
                       <td>Ganancias</td>
                       <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
-                        </div>
+                          <h4><b>$ </b>{{ number_format($GananciaPlataforma, 2 ) }}</h4>
                       </td>
                       <td><span class="badge bg-success">90%</span></td>
                     </tr>

@@ -26,10 +26,11 @@ class HomeController extends Controller
 
     public function index()
     {
-
+        $BasePlataforma = 250000;
         $RecargasPlataforma =  Registro::all()->where('id_Area','3');
-
-
+        $MoverRecargas = Registro::all()->where('id_Area','4');
+        $VentaRecargas = Registro::all()->where('id_Area','1');
+        $VentaSuperPagos = Registro::all()->where('id_Area','2');
 
         function Sumar ($Num_1){
             $Resultado = 0;
@@ -40,10 +41,13 @@ class HomeController extends Controller
         }
     
 
-        $TotalPlataforma = Sumar($RecargasPlataforma);
+        $Superpagos = Sumar($RecargasPlataforma)-(Sumar($MoverRecargas) + Sumar($VentaSuperPagos));
+        $Recargas = Sumar($MoverRecargas)+(Sumar($MoverRecargas)*0.065)-Sumar($VentaRecargas);
+        $EfectivoPlataforma = (Sumar($VentaSuperPagos)+ Sumar($VentaRecargas) + $BasePlataforma)- Sumar($RecargasPlataforma);
+        $GananciaPlataforma = ($Superpagos + $Recargas + $EfectivoPlataforma)-$BasePlataforma;
 
 
-        return view('home', compact('TotalPlataforma'));
+        return view('home', compact('Superpagos','Recargas','EfectivoPlataforma','GananciaPlataforma'));
     }
 
 }
