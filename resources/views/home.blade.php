@@ -29,7 +29,7 @@
                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td><span class="badge bg-danger">500</span></td>
                     </tr>
                     <tr>
                       <td>2.</td>
@@ -110,7 +110,7 @@
                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td><span class="badge bg-danger">{{$TotalPlataforma}}</span></td>
                     </tr>
                     <tr>
                       <td>2.</td>
