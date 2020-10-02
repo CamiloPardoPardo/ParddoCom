@@ -36,7 +36,18 @@ Route::get('/Formularios', [App\Http\Controllers\AdminController::class, 'index'
 Route::POST('/Nueva-Area', [App\Http\Controllers\AreasController::class, 'store'])->name('Nueva-Area');
 
 
-//RUTAS PARA AREAS
+//RUTAS PARA REGISTROS
 Route::POST('/Nuevo-Registro', [App\Http\Controllers\RegistrosController::class, 'store'])->name('Nuevo-Registro');
+
+
+//RUTAS PARA PROOVEDORES
+Route::POST('/Nuevo-Proovedor', [App\Http\Controllers\ProovedoresController::class, 'store'])->name('Nuevo-Proovedor');
+
+//RUTAS PARA DE PRODUCTOS
+Route::POST('/Nuevo-Producto', [App\Http\Controllers\ProductosController::class, 'store'])->name('Nuevo-Producto');
+
+//RUTAS PARA DE PRODUCTOS
+Route::POST('/Nuevo-Pedido', [App\Http\Controllers\PedidosController::class, 'store'])->name('Nuevo-Pedido');
+
 
 

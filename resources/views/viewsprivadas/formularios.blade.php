@@ -3,6 +3,12 @@
 @section('content')
 
 <section class="content">
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        Los cambios no se enviaron, verifique los campos.
+    </div>
+    @endif
+
     <div class="container-fluid">
         <div class="row">
             <!-- left column -->
@@ -17,15 +23,6 @@
                     <form action="/Nuevo-Registro" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
 
                         <div class="card-body">
                             <div class="form-group">
@@ -63,15 +60,6 @@
                     <form action="/Nueva-Area" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nueva Area</label>
@@ -284,296 +272,125 @@
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">General Elements</h3>
+                        <h3 class="card-title">Nuevo pedido</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form role="form">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                        <label>Text</label>
-                                        <input type="text" class="form-control" placeholder="Enter ...">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Text Disabled</label>
-                                        <input type="text" class="form-control" placeholder="Enter ..." disabled>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- textarea -->
-                                    <div class="form-group">
-                                        <label>Textarea</label>
-                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Textarea Disabled</label>
-                                        <textarea class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                        <form action="/Nuevo-Pedido" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
-                            <!-- input states -->
-                            <div class="form-group">
-                                <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Input with
-                                    success</label>
-                                <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Input with
-                                    warning</label>
-                                <input type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter ...">
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i> Input with
-                                    error</label>
-                                <input type="text" class="form-control is-invalid" id="inputError" placeholder="Enter ...">
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- checkbox -->
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox">
-                                            <label class="form-check-label">Checkbox</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" checked>
-                                            <label class="form-check-label">Checkbox checked</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" disabled>
-                                            <label class="form-check-label">Checkbox disabled</label>
-                                        </div>
-                                    </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Poducto</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="id_Producto" value="{{ old('id_Producto')}}">
+                                        @foreach($Productos as $Producto)
+                                        <option value="{{$Producto->id}}">{{$Producto->Referencia}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="col-sm-6">
-                                    <!-- radio -->
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio1">
-                                            <label class="form-check-label">Radio</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio1" checked>
-                                            <label class="form-check-label">Radio checked</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" disabled>
-                                            <label class="form-check-label">Radio disabled</label>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Proovedor</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="id_Proovedor" value="{{ old('id_Proovedor')}}">
+                                        @foreach($Proovedores as $Proovedor)
+                                        <option value="{{$Proovedor->id}}">{{$Proovedor->Proovedor}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Cantidad</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Cantidad" autocomplete="off" placeholder="Cantidad" value="{{ old('Cantidad')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Valor</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Valor" autocomplete="off" placeholder="Valor" value="{{ old('Valor')}}">
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- select -->
-                                    <div class="form-group">
-                                        <label>Select</label>
-                                        <select class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Select Disabled</label>
-                                        <select class="form-control" disabled>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- Select multiple-->
-                                    <div class="form-group">
-                                        <label>Select Multiple</label>
-                                        <select multiple class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Select Multiple Disabled</label>
-                                        <select multiple class="form-control" disabled>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </form>
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-                <!-- general form elements disabled -->
-                <div class="card card-secondary">
+
+                <div class="card card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">Custom Elements</h3>
+                        <h3 class="card-title">Nuevo producto</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form role="form">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- checkbox -->
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                            <label for="customCheckbox1" class="custom-control-label">Custom Checkbox</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked>
-                                            <label for="customCheckbox2" class="custom-control-label">Custom Checkbox checked</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" type="checkbox" id="customCheckbox3" disabled>
-                                            <label for="customCheckbox3" class="custom-control-label">Custom Checkbox disabled</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <!-- radio -->
-                                    <div class="form-group">
-                                        <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
-                                            <label for="customRadio1" class="custom-control-label">Custom Radio</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
-                                            <label for="customRadio2" class="custom-control-label">Custom Radio checked</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" id="customRadio3" disabled>
-                                            <label for="customRadio3" class="custom-control-label">Custom Radio disabled</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <form action="/Nuevo-Producto" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- select -->
-                                    <div class="form-group">
-                                        <label>Custom Select</label>
-                                        <select class="custom-select">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Custom Select Disabled</label>
-                                        <select class="custom-select" disabled>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- Select multiple-->
-                                    <div class="form-group">
-                                        <label>Custom Select Multiple</label>
-                                        <select multiple class="custom-select">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Codigo id</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Codigo_id" autocomplete="off" placeholder="Codigo de barras" value="{{ old('Codigo_id')}}">
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Custom Select Multiple Disabled</label>
-                                        <select multiple class="custom-select" disabled>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Referencia</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Referencia" autocomplete="off" placeholder="Referencia" value="{{ old('Referencia')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Marca</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Marca" autocomplete="off" placeholder="Marca" value="{{ old('Marca')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Descripción</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Descripcion" autocomplete="off" placeholder="Descripcion" value="{{ old('Descripcion')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Proovedor</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="id_Proovedor" value="{{ old('id_Proovedor')}}">
+                                        @foreach($Proovedores as $Proovedor)
+                                        <option value="{{$Proovedor->id}}">{{$Proovedor->Proovedor}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
 
-                            <div class="form-group">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                                    <label class="custom-control-label" for="customSwitch1">Toggle this custom switch element</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                                    <label class="custom-control-label" for="customSwitch3">Toggle this custom switch element with custom colors danger/success</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
-                                    <label class="custom-control-label" for="customSwitch2">Disabled custom switch element</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="customRange1">Custom range</label>
-                                <input type="range" class="custom-range" id="customRange1">
-                            </div>
-                            <div class="form-group">
-                                <label for="customRange1">Custom range (custom-range-danger)</label>
-                                <input type="range" class="custom-range custom-range-danger" id="customRange1">
-                            </div>
-                            <div class="form-group">
-                                <label for="customRange1">Custom range (custom-range-teal)</label>
-                                <input type="range" class="custom-range custom-range-teal" id="customRange1">
-                            </div>
-                            <div class="form-group">
-                                <!-- <label for="customFile">Custom File</label> -->
+                <!-- /.card -->
+                <!-- general form elements disabled -->
+                <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Nuevo proovedor</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form action="/Nuevo-Proovedor" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Proovedor</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Proovedor" autocomplete="off" placeholder="Proovedor" value="{{ old('Proovedor')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciudad</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Ciudad" autocomplete="off" placeholder="Ciudad" value="{{ old('Ciudad')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombre de quien atiende</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="Nombre" autocomplete="off" placeholder="Nombre" value="{{ old('Nombre')}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Telefono</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Telefono" autocomplete="off" placeholder="Telefono" value="{{ old('Telefono')}}">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </form>
                     </div>

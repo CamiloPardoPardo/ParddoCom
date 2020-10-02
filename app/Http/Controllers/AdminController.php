@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 use App\Models\Area;
+use App\Models\Producto;
+use App\Models\Proovedor;
 use App\Models\Registro;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +24,10 @@ class AdminController extends Controller
     {
 
         $Areas = Area::all();
+        $Proovedores = Proovedor::all();
+        $Productos = Producto::all();
 
-        return view('viewsprivadas.formularios', compact('Areas'));
+        return view('viewsprivadas.formularios', compact('Areas','Proovedores','Productos'));
     }
 
     /**

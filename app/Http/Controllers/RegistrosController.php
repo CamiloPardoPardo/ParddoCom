@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RegistrosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +41,7 @@ class RegistrosController extends Controller
     public function store(Request $request)
     {
         Registro::create($request->all());
-        return redirect('Formularios');
+        return redirect('home');
     }
 
     /**

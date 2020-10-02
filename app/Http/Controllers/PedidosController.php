@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 class PedidosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +39,20 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->Estado = 'Nuevo';
+        $request->validate([
+            'id_Producto' => 'required',
+            'id_Proovedor' => 'required',
+            'Cantidad' => 'required',
+            'Valor' => 'required',
+            'id_Proovedor' => 'required',
+            
+          ]);
+
+          Pedido::create($request->all());
+          return redirect('Formularios');
+  
+
     }
 
     /**

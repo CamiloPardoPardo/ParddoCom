@@ -17,7 +17,7 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->string('Cantidad');
             $table->string('Valor')->nullable();
-            $table->string('Estado');
+            $table->string('Estado')->default('Nuevo');
             $table->string('id_Producto');
             $table->string('id_Proovedor');
             $table->timestamps();

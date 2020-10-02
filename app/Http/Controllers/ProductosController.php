@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +40,15 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Codigo_id' => 'required',
+            'Referencia' => 'required',
+            'Marca' => 'required',
+            'Descripcion' => 'required',
+            'id_Proovedor' => 'required',
+          ]);
+        Producto::create($request->all());
+        return redirect('Formularios');
     }
 
     /**
