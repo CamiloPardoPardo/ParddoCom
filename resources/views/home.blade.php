@@ -170,7 +170,7 @@
                       <td>1.</td>
                       <td>Superpagos</td>
                       <td>
-                          <h4><b>$ </b>{{ number_format($Superpagos, 0 ) }}</h4>
+                          <h4>{{ number_format($Superpagos, 0 ) }}</h4>
                       </td>
                       <td><span class="badge bg-primary">{{ number_format($PorSuperpagos, 0 ) }} %</span></td>
                     </tr>
@@ -178,7 +178,7 @@
                       <td>2.</td>
                       <td>Recargas</td>
                       <td>
-                          <h4><b>$ </b>{{ number_format($Recargas, 0 ) }}</h4>
+                          <h4>{{ number_format($Recargas, 0 ) }}</h4>
                       </td>
                       <td><span class="badge bg-primary">{{ number_format($PorRecargas, 0 ) }} %</span></td>
                     </tr>
@@ -186,7 +186,7 @@
                       <td>3.</td>
                       <td>Efectivo</td>
                       <td>
-                          <h4><b>$ </b>{{ number_format($EfectivoPlataforma, 0 ) }}</h4>
+                          <h4>{{ number_format($EfectivoPlataforma, 0 ) }}</h4>
                       </td>
                       <td><span class="badge bg-primary">{{ number_format($PorEfectivoPlataforma, 0 ) }} %</span></td>
                     </tr>
@@ -194,7 +194,7 @@
                       <td>4.</td>
                       <td>Ganancias</td>
                       <td>
-                          <h4><b>$ </b>{{ number_format($GananciaPlataforma, 0 ) }}</h4>
+                          <h4>{{ number_format($GananciaPlataforma, 0 ) }}</h4>
                       </td>
                       <td><span class="badge bg-primary">{{ number_format($PorGananciaPlataforma, 0 ) }} %</span></td>              
                     </tr>
