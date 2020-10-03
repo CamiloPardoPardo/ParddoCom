@@ -211,6 +211,13 @@
                   <p>Inventario</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/Pedidos" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pedidos</p>
+                </a>
+              </li>
+
             </ul>
           </li>
           <li class="nav-item has-treeview">

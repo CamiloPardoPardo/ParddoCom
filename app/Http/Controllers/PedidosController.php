@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class PedidosController extends Controller
@@ -18,7 +19,8 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        //
+        $Pedidos = Pedido::all();
+       return view('viewsprivadas.pedidos', compact('Pedidos'));
     }
 
     /**
@@ -77,6 +79,34 @@ class PedidosController extends Controller
         //
     }
 
+    public function Confirmar($id)
+    {
+        $Producto = Pedido::findOrFail($id);
+        $Producto->Estado = 'Confirmado';
+        $Producto->update();
+        return redirect('Pedidos');
+    }
+
+    public function Enviado($id)
+    {
+        $Producto = Pedido::findOrFail($id);
+        $Producto->Estado = 'Enviado';
+        $Producto->update();
+        return redirect('Pedidos');
+    }
+
+    public function Recibido($id)
+    {
+        $Producto = Pedido::findOrFail($id);
+        $Producto->Estado = 'Recibido';
+        $Producto->update();
+        return redirect('Pedidos');
+    }
+
+
+
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -97,6 +127,8 @@ class PedidosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+        $Pedido->delete();
+        return redirect('Pedidos');
     }
 }

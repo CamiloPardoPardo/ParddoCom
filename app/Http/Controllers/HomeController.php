@@ -32,10 +32,10 @@ class HomeController extends Controller
 
         // Sistema para calculos generales de la plataforma 
         $BasePlataforma = 250000;
-        $RecargasPlataforma =  Registro::all()->where('id_Area','3');
-        $MoverRecargas = Registro::all()->where('id_Area','4');
-        $VentaRecargas = Registro::all()->where('id_Area','1');
-        $VentaSuperPagos = Registro::all()->where('id_Area','2');
+        $RecargasPlataforma =  Registro::all()->where('id_Area','4');
+        $MoverRecargas = Registro::all()->where('id_Area','3');
+        $VentaRecargas = Registro::all()->where('id_Area','5');
+        $VentaSuperPagos = Registro::all()->where('id_Area','6');
 
         //sistema para calculo de ventas por día
 

@@ -46,8 +46,17 @@ Route::POST('/Nuevo-Proovedor', [App\Http\Controllers\ProovedoresController::cla
 //RUTAS PARA DE PRODUCTOS
 Route::POST('/Nuevo-Producto', [App\Http\Controllers\ProductosController::class, 'store'])->name('Nuevo-Producto');
 
-//RUTAS PARA DE PRODUCTOS
+//RUTAS PARA DE PEDIDOS
+Route::get('/Pedidos', [App\Http\Controllers\PedidosController::class, 'index'])->name('Pedidos');
 Route::POST('/Nuevo-Pedido', [App\Http\Controllers\PedidosController::class, 'store'])->name('Nuevo-Pedido');
+Route::get('/Pedido-Confirmado/{id}', [App\Http\Controllers\PedidosController::class, 'Confirmar'])->name('Pedido-Confirmado');
+Route::get('/Pedido-Enviado/{id}', [App\Http\Controllers\PedidosController::class, 'Enviado'])->name('Pedido-Enviado');
+Route::get('/Pedido-Recibido/{id}', [App\Http\Controllers\PedidosController::class, 'Recibido'])->name('Pedido-Recibido');
+Route::get('/Pedido-Eliminado/{id}', [App\Http\Controllers\PedidosController::class, 'destroy'])->name('Pedido-Eliminado');
+
+
+
+
 
 
 
